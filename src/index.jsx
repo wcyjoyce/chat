@@ -8,8 +8,10 @@ import reduxPromise from "redux-promise";
 import App from "./components/app";
 import "../assets/stylesheets/application.scss";
 
+import messagesReducer from "./reducers/messages_reducer.js";
+
 const reducers = combineReducers({
-  changeMe: (state = null, action) => state
+  messages: messagesReducer,
 });
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;

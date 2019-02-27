@@ -3,15 +3,33 @@ import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
 
 import Message from "../components/message.jsx";
+import { setMessages } from "../actions";
 
 class Messages extends Component {
+  componentWillMount() {
+    this.props.setMessages();
+  }
+
   render() {
     return (
       <div className="messages">
-        {this.props.chat.map((message) => <Message key={message.author} message={message} />)}
+        {this.props.messages.map((message) => <Message key={message.author} message={message} />)}
       </div>
     );
   }
 }
 
-export default Messages;
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators(
+    { setMessages: setMessages },
+    dispatch
+  );
+}
+
+function mapReduxStateToProps(state) {
+  return {
+    messages: state.messages
+  };
+}
+
+export default connect(mapReduxStateToProps, mapDispatchToProps)(Messages);

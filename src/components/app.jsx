@@ -1,10 +1,7 @@
 import React from "react";
 
 import Channels from "../containers/channels.jsx";
-import Channel from "../containers/channel.jsx";
 import Messages from "../containers/messages.jsx";
-import Message from "../components/message.jsx";
-import Form from "../containers/form.jsx";
 
 const NavBar = () => {
   return (

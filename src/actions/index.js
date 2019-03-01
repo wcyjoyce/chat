@@ -1,12 +1,3 @@
-// import messages from "../messages.js";
-
-// export function fetchMessages() {
-//   return {
-//     type: "FETCH_MESSAGES",
-//     payload: messages
-//   }
-// }
-
 const base_url = "https://wagon-chat.herokuapp.com";
 
 export function fetchMessages(channel) {
@@ -15,5 +6,12 @@ export function fetchMessages(channel) {
   return {
     type: "FETCH_MESSAGES",
     payload: promise
+  }
+}
+
+export function selectChannel(channel) {
+  return {
+    type: "SELECTED_CHANNEL",
+    payload: channel
   }
 }

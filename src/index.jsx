@@ -9,29 +9,23 @@ import App from "./components/app";
 import "../assets/stylesheets/application.scss";
 
 import messagesReducer from "./reducers/messages_reducer.js";
-import identityReducer from "./reducers/identity_reducer.js";
+import selectedChannelReducer from "./reducers/selected_channel_reducer.js";
+
+const identityReducer = (state = null) => state;
 
 const initialState = {
-  messages: [
-    {
-      "author":"Shirley",
-      "content":"Hello world!",
-      "created_at":"2017-09-26T23:03:16.365Z"
-    },
-    {
-      "author":"Joyce",
-      "content":"My name is Joyce",
-      "created_at":"2017-09-26T23:03:21.194Z"
-    }
-  ]
-  // ],
-  // channels: ["general", "london", "batch-103"],
+  messages: [],
+  channels: ["general", "react", "london"],
+  currentUser: "joyce",
   // currentUser: prompt("What is your username?") || `anonymous${Math.floor(10 + (Math.random() * 90))}`,
-  // selectedChannel: "general"
+  selectedChannel: "general"
 };
 
 const reducers = combineReducers({
-  messages: messagesReducer
+  messages: messagesReducer,
+  channels: identityReducer,
+  currentUser: identityReducer,
+  selectedChannel: selectedChannelReducer
 });
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;

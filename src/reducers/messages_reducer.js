@@ -1,25 +1,12 @@
-// Static messages list:
-// const messagesReducer = (state, action) => {
-//   if (state == undefined) {
-//     return []
-//   }
-
-//   if (action.type === "FETCH_MESSAGES") {
-//     return action.payload;
-//   } else {
-//     return state;
-//   }
-// }
-
-// API:
-import { fetchMessages } from "../actions";
+// import { fetchMessages, messagePosted, selectedChannel } from "../actions";
 
 const messagesReducer = (state = null, action) => {
   switch(action.type) {
-    case fetchMessages: {
-      const messages = action.payload.messages;
-      const channels = action.payload.channels;
-      return messages;
+    case "FETCH_MESSAGES": {
+      return action.payload.messages;
+    }
+    case "SELECTED_CHANNEL": {
+      return []; // clears view when selected channel has changed
     }
     default:
       return state;

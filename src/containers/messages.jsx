@@ -9,13 +9,17 @@ import { fetchMessages } from "../actions";
 
 class Messages extends Component {
   componentWillMount() {
-    this.props.fetchMessages("test");
+    this.fetchMessages();
+  }
+
+  fetchMessages = () => {
+    this.props.fetchMessages(this.props.selectedChannel);
   }
 
   render() {
     return (
       <div className="channel">
-        <h1>Channel Name</h1>
+        <h1>#{this.props.selectedChannel}</h1>
         <div className="messages">
           {this.props.messages.map((message) => <Message key={message.id} message={message} />)}
         </div>
@@ -34,7 +38,8 @@ function mapDispatchToProps(dispatch) {
 
 function mapStateToProps(state) {
   return {
-    messages: state.messages
+    messages: state.messages,
+    selectedChannel: state.selectedChannel
   };
 }
 

@@ -1,3 +1,4 @@
+// Static messages list:
 // const messagesReducer = (state, action) => {
 //   if (state == undefined) {
 //     return []
@@ -10,17 +11,18 @@
 //   }
 // }
 
-const messagesReducer = (state, action) => {
-  if (state == undefined) {
-    return [];
-  }
+// API:
+import { setMessages } from "../actions";
 
-  if (action.type === "SET_MESSAGES") {
-    const messages = action.payload.messages;
-    const channel = action.payload.channel;
-    return messages;
-  } else {
-    return state;
+const messagesReducer = (state = null, action) => {
+  switch(action.type) {
+    case setMessages: {
+      const messages = action.payload.messages;
+      const channels = action.payload.channels;
+      return messages;
+    }
+    default:
+      return state;
   }
 }
 

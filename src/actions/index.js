@@ -1,19 +1,19 @@
 // import messages from "../messages.js";
 
-// export function setMessages() {
+// export function fetchMessages() {
 //   return {
-//     type: "SET_MESSAGES",
+//     type: "FETCH_MESSAGES",
 //     payload: messages
 //   }
 // }
 
 const base_url = "https://wagon-chat.herokuapp.com";
 
-export function setMessages(channel) {
+export function fetchMessages(channel) {
   const url = `${base_url}/{channel}/messages`;
   const promise = fetch(url).then(response => response.json());
   return {
-    type: "SET_MESSAGES",
+    type: "FETCH_MESSAGES",
     payload: promise
   }
 }

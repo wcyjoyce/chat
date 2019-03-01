@@ -4,7 +4,7 @@
 //     return []
 //   }
 
-//   if (action.type === "SET_MESSAGES") {
+//   if (action.type === "FETCH_MESSAGES") {
 //     return action.payload;
 //   } else {
 //     return state;
@@ -12,11 +12,11 @@
 // }
 
 // API:
-import { setMessages } from "../actions";
+import { fetchMessages } from "../actions";
 
 const messagesReducer = (state = null, action) => {
   switch(action.type) {
-    case setMessages: {
+    case fetchMessages: {
       const messages = action.payload.messages;
       const channels = action.payload.channels;
       return messages;

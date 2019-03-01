@@ -3,17 +3,20 @@ import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
 
 import Message from "../components/message.jsx";
-import { setMessages } from "../actions";
+import { fetchMessages } from "../actions";
 
 class Messages extends Component {
   componentWillMount() {
-    this.props.setMessages();
+    this.props.fetchMessages("test");
   }
 
   render() {
     return (
-      <div className="messages">
-        {this.props.messages.map((message) => <Message key={message.author} message={message} />)}
+      <div className="channel">
+        <h1>Channel Name</h1>
+        <div className="messages">
+          {this.props.messages.map((message) => <Message key={message.author} message={message} />)}
+        </div>
       </div>
     );
   }
@@ -21,15 +24,15 @@ class Messages extends Component {
 
 function mapDispatchToProps(dispatch) {
   return bindActionCreators(
-    { setMessages: setMessages },
+    { fetchMessages: fetchMessages },
     dispatch
   );
 }
 
-function mapReduxStateToProps(state) {
+function mapStateToProps(state) {
   return {
     messages: state.messages
   };
 }
 
-export default connect(mapReduxStateToProps, mapDispatchToProps)(Messages);
+export default connect(mapStateToProps, mapDispatchToProps)(Messages);

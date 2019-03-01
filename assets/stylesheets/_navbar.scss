@@ -1,12 +1,13 @@
 .navbar {
   background: #DBDBDB;
   height: 100vh;
+  width: 60px;
+  padding: 10px;
 
   img {
-    height: 50px;
-    weight: 50px;
+    height: 40px;
+    weight: 40px;
     border-radius: 50%;
-    margin: 15px 10px;
     filter: brightness(95%);
   }
 }

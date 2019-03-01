@@ -3,6 +3,8 @@ import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
 
 import Message from "../components/message.jsx";
+import Form from "../containers/form.jsx";
+
 import { fetchMessages } from "../actions";
 
 class Messages extends Component {
@@ -15,8 +17,9 @@ class Messages extends Component {
       <div className="channel">
         <h1>Channel Name</h1>
         <div className="messages">
-          {this.props.messages.map((message) => <Message key={message.author} message={message} />)}
+          {this.props.messages.map((message) => <Message key={message.id} message={message} />)}
         </div>
+        <Form />
       </div>
     );
   }

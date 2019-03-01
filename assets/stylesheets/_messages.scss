@@ -1,0 +1,28 @@
+.messages {
+  padding: 10px 0px;
+}
+
+.message {
+  margin: 10px 0px;
+
+  .message-header {
+    display: flex;
+    align-items: center;
+
+    .message-author {
+      font-weight: 700;
+      font-size: 14px;
+    }
+
+    .message-datetime {
+      font-style: italic;
+      font-size: 10px;
+      color: #616061;
+      padding: 0px 10px;
+    }
+  }
+
+  .message-content {
+    padding: 5px 0px;
+  }
+}

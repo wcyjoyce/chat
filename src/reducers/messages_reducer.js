@@ -1,5 +1,3 @@
-// import { fetchMessages, messagePosted, selectedChannel } from "../actions";
-
 const messagesReducer = (state = null, action) => {
   switch(action.type) {
     case "FETCH_MESSAGES": {

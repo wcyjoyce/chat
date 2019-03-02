@@ -28,7 +28,7 @@ class Form extends Component {
     return (
       <form onSubmit={this.handleSubmit}>
         <input
-          ref={(input) => {this.messageBox = input; }}
+          ref={(input) => {this.messageBox = input;}}
           type="text"
           className="form-control"
           autoComplete="off"

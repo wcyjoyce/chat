@@ -1,5 +1,3 @@
-// import { selectedChannel } from "../actions";
-
 const selectedChannelReducer = (state = null, action) => {
   switch (action.type) {
     case "SELECTED_CHANNEL": {

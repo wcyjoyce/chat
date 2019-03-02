@@ -12,6 +12,18 @@ class Messages extends Component {
     this.fetchMessages();
   }
 
+  componentDidMount() {
+    this.refresher = setInterval(this.fetchMessages, 5000); // refreshing every 5 seconds
+  }
+
+  componentDidUpdate() {
+    this.list.scrollTop = this.list.scrollHeight;
+  }
+
+  componentWillUnmount() {
+    clearInterval(this.refresher);
+  }
+
   fetchMessages = () => {
     this.props.fetchMessages(this.props.selectedChannel);
   }
@@ -20,7 +32,7 @@ class Messages extends Component {
     return (
       <div className="channel">
         <h1>#{this.props.selectedChannel}</h1>
-        <div className="messages">
+        <div className="messages" ref={(list) => {this.list = list;}}>
           {this.props.messages.map((message) => <Message key={message.id} message={message} />)}
         </div>
         <Form />
@@ -30,10 +42,7 @@ class Messages extends Component {
 }
 
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators(
-    { fetchMessages: fetchMessages },
-    dispatch
-  );
+  return bindActionCreators({ fetchMessages: fetchMessages }, dispatch);
 }
 
 function mapStateToProps(state) {

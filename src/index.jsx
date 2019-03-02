@@ -16,8 +16,8 @@ const identityReducer = (state = null) => state;
 const initialState = {
   messages: [],
   channels: ["general", "react", "london"],
-  currentUser: "joyce",
-  // currentUser: prompt("What is your username?") || `anonymous${Math.floor(10 + (Math.random() * 90))}`,
+  // currentUser: "Joyce",
+  currentUser: prompt("What is your username?") || `anonymous${Math.floor(10 + (Math.random() * 90))}`,
   selectedChannel: "general"
 };
 

@@ -7,17 +7,18 @@ body {
   font-family: "Open Sans", sans-serif;
 }
 
+.app {
+  display: flex;
+  height: 100vh;
+  overflow-y: hidden;
+}
+
 h1 {
   font-weight: 700;
   font-size: 14px;
   margin: 0px;
   padding-bottom: 10px;
   border-bottom: 1px solid #F4F4F4;
-}
-
-.app {
-  display: flex;
-  height: 100vh;
 }
 
 .channels {
@@ -28,7 +29,7 @@ h1 {
 }
 
 .channel {
-  width: calc(100% - 290px);
+  width: calc(100% - 280px);
   font-size: 14px;
   padding: 20px 25px;
 }

@@ -1,7 +1,7 @@
 const base_url = "https://wagon-chat.herokuapp.com";
 
 export function fetchMessages(channel) {
-  const url = `${base_url}/{channel}/messages`;
+  const url = `${base_url}/${channel}/messages`;
   const promise = fetch(url).then(response => response.json());
   return {
     type: "FETCH_MESSAGES",
@@ -17,7 +17,7 @@ export function selectChannel(channel) {
 }
 
 export function createMessage(channel, author, content) {
-  const url = `${base_url}/{channel}/messages`;
+  const url = `${base_url}/${channel}/messages`;
   const body = { author, content };
   const promise = fetch(url, {
     method: "POST",

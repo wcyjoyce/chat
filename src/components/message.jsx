@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { emojify } from "react-emojione";
 
 class Message extends Component {
   render() {
@@ -12,7 +13,7 @@ class Message extends Component {
           <div className="message-author">{author}</div>
           <div className="message-datetime">{date} {time}</div>
         </div>
-        <div className="message-content"> {content}</div>
+        <div className="message-content"> {emojify(content)}</div>
       </div>
     );
   }
